@@ -22,6 +22,9 @@
     <Filter Include="Arquivos de Cabeçalho\types">
       <UniqueIdentifier>{4f706925-8045-4197-b068-fc02d5ce501f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Arquivos de Cabeçalho\functions">
+      <UniqueIdentifier>{01e63857-4082-4991-9459-e75ea62f50fc}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="index.c">
@@ -30,9 +33,6 @@
     <ClCompile Include="player.h">
       <Filter>Arquivos de Cabeçalho\types</Filter>
     </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="..\assets\player.png">
@@ -46,5 +46,11 @@
     <ClInclude Include="object.h">
       <Filter>Arquivos de Cabeçalho\types</Filter>
     </ClInclude>
+    <ClInclude Include="playerFunctions.h">
+      <Filter>Arquivos de Cabeçalho\functions</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
 </Project>

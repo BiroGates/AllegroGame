@@ -1,19 +1,16 @@
 #include <stdbool.h>
 
 typedef struct PLAYER {
-	// Movement
-	int x;
-	int y;
-	float velocity;
+	// MOVEMENT
+	int POSX;
+	int POSY;
+	int PLAYERDIR;
+	float VELOCITY;
+	
+	// COLLISION
+	bool ISCOLLIDING;
+	bool CANMOVE;
 
-	// Collision
-	bool IsColliding;
-	bool CanMove;
-
-	// Aditional info
-	int insignias[5];
-	char PathToImage;
-
-
-
+	// EXTRA INFO
+	int INSIGNIAS[5];
 }PLAYER;

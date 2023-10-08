@@ -29,10 +29,11 @@
     <Image Include="..\assets\town (1).jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
+    <ClInclude Include="object.h" />
+    <ClInclude Include="playerFunctions.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="object.h" />
+    <None Include="packages.config" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>

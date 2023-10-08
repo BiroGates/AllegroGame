@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Arquivos de Origem">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Arquivos de Cabeçalho">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Arquivos de Recurso">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Arquivos de Recurso\scenario">
+      <UniqueIdentifier>{07d43f26-b441-4746-87b9-be0d81159053}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Arquivos de Recurso\characters">
+      <UniqueIdentifier>{b8a3cb56-95a5-4238-b4a7-6d77fc42b9d9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Arquivos de Cabeçalho\types">
+      <UniqueIdentifier>{4f706925-8045-4197-b068-fc02d5ce501f}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="index.c">
+      <Filter>Arquivos de Origem</Filter>
+    </ClCompile>
+    <ClCompile Include="player.h">
+      <Filter>Arquivos de Cabeçalho\types</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\assets\player.png">
+      <Filter>Arquivos de Recurso\characters</Filter>
+    </Image>
+    <Image Include="..\assets\town (1).jpg">
+      <Filter>Arquivos de Recurso\scenario</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="object.h">
+      <Filter>Arquivos de Cabeçalho\types</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

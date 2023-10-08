@@ -1,0 +1,6 @@
+﻿C:\Program Files\Microsoft Visual Studio\2022\Preview\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(531,5): warning MSB8028: O diretório intermediário (Debug\) contém arquivos compartilhados de outro projeto (BunnyGame.vcxproj). Isso pode levar a um comportamento incorreto de limpeza e recompilação.
+  index.c
+C:\Users\wwwgu\Documents\BunnyGame\BunnyGame\BunnyGame\index.c(7,10): warning C4067: tokens inesperados após diretiva de pré-processador - esperado um newline
+C:\Users\wwwgu\Documents\BunnyGame\BunnyGame\BunnyGame\index.c(8,10): warning C4067: tokens inesperados após diretiva de pré-processador - esperado um newline
+C:\Users\wwwgu\Documents\BunnyGame\BunnyGame\BunnyGame\index.c(40,12): warning C4047: 'inicializando': 'char' difere em níveis de indireção de 'char [7]'
+  BunnyGame.vcxproj -> C:\Users\wwwgu\Documents\BunnyGame\BunnyGame\Debug\AllegroGame.exe

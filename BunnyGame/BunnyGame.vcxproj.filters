@@ -41,9 +41,15 @@
     <Image Include="..\assets\town (1).jpg">
       <Filter>Arquivos de Recurso\scenario</Filter>
     </Image>
+    <Image Include="..\assets\casa_di_piriquito.png">
+      <Filter>Arquivos de Recurso\scenario</Filter>
+    </Image>
+    <Image Include="..\assets\tree.png">
+      <Filter>Arquivos de Recurso\scenario</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="object.h">
+    <ClInclude Include="wall.h">
       <Filter>Arquivos de Cabeçalho\types</Filter>
     </ClInclude>
     <ClInclude Include="playerFunctions.h">

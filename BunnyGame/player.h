@@ -4,6 +4,7 @@ typedef struct PLAYER {
 	// MOVEMENT
 	int POSX;
 	int POSY;
+	// 0 = DOWN, 1 = UP, 2 = LEFT, 3 = RIGHT
 	int PLAYERDIR;
 	float VELOCITY;
 	

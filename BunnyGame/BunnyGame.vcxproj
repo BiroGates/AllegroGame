@@ -23,13 +23,19 @@
     <ClCompile Include="player.h" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="..\assets\casa_di_piriquito.png">
+      <DeploymentContent>true</DeploymentContent>
+    </Image>
     <Image Include="..\assets\player.png">
       <DeploymentContent>true</DeploymentContent>
     </Image>
     <Image Include="..\assets\town (1).jpg" />
+    <Image Include="..\assets\tree.png">
+      <DeploymentContent>true</DeploymentContent>
+    </Image>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="object.h" />
+    <ClInclude Include="wall.h" />
     <ClInclude Include="playerFunctions.h" />
   </ItemGroup>
   <ItemGroup>

@@ -5,14 +5,14 @@
 
 // Types
 #include "player.h";
-#include "object.h";
+#include "wall.h";
 
 // Functions
 #include "playerFunctions.h";
 
 
 const int SCREEN_WIDTH = 640;
-const int SCREEN_HEIGHT = 576;
+const int SCREEN_HEIGHT = 640;
 
 int main() {
     // ======================================================
@@ -34,7 +34,7 @@ int main() {
     // SPRITES
     // ======================================================
     ALLEGRO_BITMAP* playerSprite = al_load_bitmap("..\\assets\\player.png");
-    ALLEGRO_BITMAP* map = al_load_bitmap("..\\assets\\town (1).jpg");
+    ALLEGRO_BITMAP* wallSprite = al_load_bitmap("..\\assets\\tree.png");
 
 
     // ======================================================
@@ -50,9 +50,47 @@ int main() {
     // ======================================================
     // INITIALIZING OBJECTS
     // ======================================================
-    //                   X  Y  DIR  VEL  ISCOLI  CANMOVE   INSIGNAAS
-    PLAYER playerObj = { 0, 0,  0,  5.0, false,  true,     {0}};
+    //                X    Y     DIR VEL  ISCOLI  CANMOVE   INSIGNAAS
+    PLAYER player = { 200, 200,  0,  5.0, false,  true,     {0}};
+    WALL walls[21] = { 
+        // TOP
+        {0, 0, 32, 48},
+        {64, 0, 32, 48},
+        {128, 0, 32, 48},
+        {192, 0, 32, 48},
+        {256, 0, 32, 48},
+        {320, 0, 32, 48},
+        {384, 0, 32, 48},
+        {448, 0, 32, 48},
+        {512, 0, 32, 48},
+        {576, 0, 32, 48},
+        {640, 0, 32, 48},
+        // TOP RIGTH
+        {576, 64, 32, 48},
+        {576, 128, 32, 48},
+        {576, 192, 32, 48},
+        {576, 256, 32, 48},
+        {576, 320, 32, 48},
+        {576, 384, 32, 48},
+        {576, 448, 32, 48},
+        {576, 512, 32, 48},
+        {576, 576, 32, 48},
+        {576, 640, 32, 48},
+    };
     
+    WALL bottomWals[11] = {
+        { 0,   576, 32, 48 },
+        { 64,  576, 32, 48 },
+        { 128, 576, 32, 48 },
+        { 192, 576, 32, 48 },
+        { 256, 576, 32, 48 },
+        { 320, 576, 32, 48 },
+        { 384, 576, 32, 48 },
+        { 448, 576, 32, 48 },
+        { 512, 576, 32, 48 },
+        { 576, 576, 32, 48 },
+        { 640, 576, 32, 48 }
+    };
     
 
     // ======================================================
@@ -71,27 +109,40 @@ int main() {
         // ======================================================
         // PLAYER INPUTS
         // ======================================================
-        movePlayer(&playerObj, event);
-
+        movePlayer(&player, event);
+        
+        
+        
 
 
         // ======================================================
         // RENDERING
         // ======================================================
-        al_clear_to_color(al_map_rgb(255, 255, 255));
+
+        al_clear_to_color(al_map_rgb(87, 152, 105, 255));
         
+        for (int i = 0; i < 21; i++) {
+            al_draw_scaled_bitmap(wallSprite, 0, 0, 32, 48, walls[i].POSX, walls[i].POSY, 32 * 2, 48 * 2, 0);
+            checkCollisionWithWalls(&player, &walls[i]);
+        }
         
-        //al_draw_bitmap(map, 0, 0, 0);
-        al_draw_scaled_bitmap(playerSprite, 0, 48 * playerObj.PLAYERDIR, 48, 48, playerObj.POSX, playerObj.POSY, 48 * 2, 48 * 2, 0);
+        al_draw_scaled_bitmap(playerSprite, 0, 48 * player.PLAYERDIR, 48, 48, player.POSX, player.POSY, 48 * 2, 48 * 2, 0);
         
+        for (int i = 0; i < 11; i++) {
+            al_draw_scaled_bitmap(wallSprite, 0, 0, 32, 48, bottomWals[i].POSX, bottomWals[i].POSY, 32 * 2, 48 * 2, 0);
+            checkCollisionWithWalls(&player, &bottomWals[i]);
+        }
+
         al_flip_display();
     }
     
     // ======================================================
     // DESTROYING OBJECTS
     // ======================================================
+    
     al_destroy_display(display);
     al_destroy_event_queue(event_queue);
+    al_destroy_bitmap(wallSprite);
     al_destroy_bitmap(playerSprite);
 
 

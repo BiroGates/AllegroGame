@@ -23,6 +23,9 @@
     <ClCompile Include="player.h" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="..\assets\boxT.png">
+      <DeploymentContent>true</DeploymentContent>
+    </Image>
     <Image Include="..\assets\casa_di_piriquito.png">
       <DeploymentContent>true</DeploymentContent>
     </Image>
@@ -35,6 +38,7 @@
     </Image>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="drawWalls.h" />
     <ClInclude Include="wall.h" />
     <ClInclude Include="playerFunctions.h" />
   </ItemGroup>

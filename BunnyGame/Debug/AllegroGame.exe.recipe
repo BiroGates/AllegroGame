@@ -2,18 +2,21 @@
 <Project>
   <ProjectOutputs>
     <ProjectOutput>
-      <FullPath>C:\Users\wwwgu\Documents\Programação\AllegroGame\Debug\AllegroGame.exe</FullPath>
+      <FullPath>C:\Users\wwwgu\Documents\Pokenac\AllegroGame\Debug\AllegroGame.exe</FullPath>
     </ProjectOutput>
   </ProjectOutputs>
   <ContentFiles>
     <ContentFile>
-      <FullPath>C:\Users\wwwgu\Documents\Programação\AllegroGame\assets\casa_di_piriquito.png</FullPath>
+      <FullPath>C:\Users\wwwgu\Documents\Pokenac\AllegroGame\assets\boxT.png</FullPath>
     </ContentFile>
     <ContentFile>
-      <FullPath>C:\Users\wwwgu\Documents\Programação\AllegroGame\assets\player.png</FullPath>
+      <FullPath>C:\Users\wwwgu\Documents\Pokenac\AllegroGame\assets\casa_di_piriquito.png</FullPath>
     </ContentFile>
     <ContentFile>
-      <FullPath>C:\Users\wwwgu\Documents\Programação\AllegroGame\assets\tree.png</FullPath>
+      <FullPath>C:\Users\wwwgu\Documents\Pokenac\AllegroGame\assets\player.png</FullPath>
+    </ContentFile>
+    <ContentFile>
+      <FullPath>C:\Users\wwwgu\Documents\Pokenac\AllegroGame\assets\tree.png</FullPath>
     </ContentFile>
   </ContentFiles>
   <SatelliteDlls />

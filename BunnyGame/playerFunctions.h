@@ -40,8 +40,8 @@ void checkCollisionWithWalls(PLAYER* player, WALL* wall) {
 	int playerBottomRightX = player->POSX + 48;
 	int playerBottomRightY = player->POSY + 48;
 
-	int wallBottomDownX = wall->POSX + 32;
-	int wallBottomDowny = wall->POSY + 48;
+	int wallBottomDownX = wall->POSX + wall->WIDTH;
+	int wallBottomDowny = wall->POSY + wall->HEIGH;
 
 	float playerVel = player->VELOCITY;
 

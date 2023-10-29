@@ -4,6 +4,7 @@
 
 
 
+
 void movePlayer(PLAYER* player, ALLEGRO_EVENT event) {
 	// MOVING RIGHT
 	if (event.keyboard.keycode == ALLEGRO_KEY_D) { 
@@ -55,7 +56,7 @@ void checkCollisionWithWalls(PLAYER* player, WALL* wall) {
 		if (player->PLAYERDIR == 0) player->POSY -= pushBack;
 		if (player->PLAYERDIR == 1) player->POSY += pushBack;
 		if (player->PLAYERDIR == 2) player->POSX += pushBack;
-		if (player->PLAYERDIR == 3) player->POSX -= pushBack;
+		if (player->PLAYERDIR == 3) player->POSX -= pushBack; 
 
 		return true;
 
@@ -63,3 +64,37 @@ void checkCollisionWithWalls(PLAYER* player, WALL* wall) {
 	return false;
 
 }
+
+void checkCollisionWithNpc(PLAYER* player, NPC* npc, ALLEGRO_BITMAP* sprite, ALLEGRO_FONT* font, void (*callBack)()) {
+	int pushBack = 5;
+
+	int playerBottomRightX = player->POSX + 48;
+	int playerBottomRightY = player->POSY + 48;
+
+	int npcBottomDownX = npc->POSX + npc->WIDTH;
+	int npcBottomDowny = npc->POSY + npc->HEIGH;
+
+	float playerVel = player->VELOCITY;
+
+	if (npc->POSX <= playerBottomRightX &&
+		npcBottomDownX >= player->POSX &&
+		npc->POSY <= playerBottomRightY &&
+		npcBottomDowny >= player->POSY
+		) {
+
+		
+		callBack(sprite, font, npc);
+		
+
+		return true;
+
+	}
+	return false;
+
+}
+
+
+void drawTextBox(ALLEGRO_BITMAP* sprite, ALLEGRO_FONT* font, NPC* npc) {
+	al_draw_scaled_bitmap(sprite, 0, 0, 144, 64, npc->POSX, npc->POSY - 144, 144 * 2, 64 * 2, 0);
+	
+};

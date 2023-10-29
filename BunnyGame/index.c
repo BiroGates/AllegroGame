@@ -2,10 +2,12 @@
 #include <stdio.h>
 #include <allegro5/allegro.h>
 #include <allegro5/allegro_image.h>
+#include <allegro5/allegro_ttf.h>
 
 // Types
 #include "player.h";
 #include "wall.h";
+#include "npc.h"
 
 // Functions
 #include "playerFunctions.h";
@@ -14,12 +16,15 @@
 const int SCREEN_WIDTH = 1024;
 const int SCREEN_HEIGHT = 768;
 
+
 int main() {
     // ======================================================
     // ALLEGRO INIT
     // ======================================================
     al_init();
     al_init_image_addon();
+    al_init_font_addon();
+    al_init_ttf_addon();
     al_install_keyboard();
 
 
@@ -34,8 +39,14 @@ int main() {
     // SPRITES
     // ======================================================
     ALLEGRO_BITMAP* playerSprite = al_load_bitmap("..\\assets\\player.png");
+    ALLEGRO_BITMAP* npc_one_sprite = al_load_bitmap("..\\assets\\npc_one_sprite.png");
     ALLEGRO_BITMAP* wallSprite = al_load_bitmap("..\\assets\\tree.png");
     ALLEGRO_BITMAP* textBox = al_load_bitmap("..\\assets\\boxT.png");
+
+    // ======================================================
+    // GENERAL ASSETS
+    // ======================================================
+    ALLEGRO_FONT* font = al_load_font("..\\font.ttf", 20, 0);
 
 
     // ======================================================
@@ -53,60 +64,63 @@ int main() {
     // ======================================================
     //                X    Y     DIR VEL  ISCOLI  CANMOVE   INSIGNAAS
     PLAYER player = { 200, 200,  0,  9.0, false,  true,     {0}};
+
     WALL walls[32] = {
         // TOP 16 WALLS
-        {64 * 0,   0, 32, 48},
-        {64 * 1,   0, 32, 48},
-        {64 * 2,   0, 32, 48},
-        {64 * 3,   0, 32, 48},
-        {64 * 4,   0, 32, 48},
-        {64 * 5,   0, 32, 48},
-        {64 * 6,   0, 32, 48},
-        {64 * 7,   0, 32, 48},
-        {64 * 8,   0, 32, 48},
-        {64 * 9,   0, 32, 48},
-        {64 * 10,  0, 32, 48},
-        {64 * 11,  0, 32, 48},
-        {64 * 12,  0, 32, 48},
-        {64 * 13,  0, 32, 48},
-        {64 * 14,  0, 32, 48},
-        {64 * 15,  0, 32, 48},
+        {"WALL", 64 * 0,   0, 32, 48},
+        {"WALL", 64 * 1,   0, 32, 48},
+        {"WALL", 64 * 2,   0, 32, 48},
+        {"WALL", 64 * 3,   0, 32, 48},
+        {"WALL", 64 * 4,   0, 32, 48},
+        {"WALL", 64 * 5,   0, 32, 48},
+        {"WALL", 64 * 6,   0, 32, 48},
+        {"WALL", 64 * 7,   0, 32, 48},
+        {"WALL", 64 * 8,   0, 32, 48},
+        {"WALL", 64 * 9,   0, 32, 48},
+        {"WALL", 64 * 10,  0, 32, 48},
+        {"WALL", 64 * 11,  0, 32, 48},
+        {"WALL", 64 * 12,  0, 32, 48},
+        {"WALL", 64 * 13,  0, 32, 48},
+        {"WALL", 64 * 14,  0, 32, 48},
+        {"WALL", 64 * 15,  0, 32, 48},
         
         // TOP RIGHT
-        {64 * 15, 64 * 0, 32, 48},
-        {64 * 15, 64 * 1, 32, 48},
-        {64 * 15, 64 * 2, 32, 48},
-        {64 * 15, 64 * 3, 32, 48},
-        {64 * 15, 64 * 4, 32, 48},
-        {64 * 15, 64 * 5, 32, 48},
-        {64 * 15, 64 * 6, 32, 48},
-        {64 * 15, 64 * 7, 32, 48},
-        {64 * 15, 64 * 8, 32, 48},
-        {64 * 15, 64 * 9, 32, 48},
-        {64 * 15, 64 * 10, 32, 48},
-        {64 * 15, 64 * 11, 32, 48},
-        {64 * 15, 64 * 12, 32, 48},
-        {64 * 15, 64 * 13, 32, 48},
-        {64 * 15, 64 * 14, 32, 48},
-        {64 * 15, 64 * 15, 32, 48},
+        {"WALL", 64 * 15, 64 * 0, 32, 48},
+        {"WALL", 64 * 15, 64 * 1, 32, 48},
+        {"WALL", 64 * 15, 64 * 2, 32, 48},
+        {"WALL", 64 * 15, 64 * 3, 32, 48},
+        {"WALL", 64 * 15, 64 * 4, 32, 48},
+        {"WALL", 64 * 15, 64 * 5, 32, 48},
+        {"WALL", 64 * 15, 64 * 6, 32, 48},
+        {"WALL", 64 * 15, 64 * 7, 32, 48},
+        {"WALL", 64 * 15, 64 * 8, 32, 48},
+        {"WALL", 64 * 15, 64 * 9, 32, 48},
+        {"WALL", 64 * 15, 64 * 10, 32, 48},
+        {"WALL", 64 * 15, 64 * 11, 32, 48},
+        {"WALL", 64 * 15, 64 * 12, 32, 48},
+        {"WALL", 64 * 15, 64 * 13, 32, 48},
+        {"WALL", 64 * 15, 64 * 14, 32, 48},
+        {"WALL", 64 * 15, 64 * 15, 32, 48},
     };
-    // BOTTOM
     WALL bottomWals[15] = {
-        { 64 * 0,  64 * 11, 32,48 },
-        { 64 * 1,  64 * 11, 32, 48 },
-        { 64 * 2,  64 * 11, 32, 48 },
-        { 64 * 3,  64 * 11, 32, 48 },
-        { 64 * 4,  64 * 11, 32, 48 },
-        { 64 * 5,  64 * 11, 32, 48 },
-        { 64 * 6,  64 * 11, 32, 48 },
-        { 64 * 7,  64 * 11, 32, 48 },
-        { 64 * 8,  64 * 11, 32, 48 },
-        { 64 * 9,  64 * 11, 32, 48 },
-        { 64 * 10, 64 * 11, 32, 48 },
-        { 64 * 11, 64 * 11, 32, 48 },
-        { 64 * 12, 64 * 11, 32, 48 },
-        { 64 * 13, 64 * 11, 32, 48 },
-        { 64 * 14, 64 * 11, 32, 48 }
+        { "WALL", 64 * 0,  64 * 11, 32,48 },
+        { "WALL", 64 * 1,  64 * 11, 32, 48 },
+        { "WALL", 64 * 2,  64 * 11, 32, 48 },
+        { "WALL", 64 * 3,  64 * 11, 32, 48 },
+        { "WALL", 64 * 4,  64 * 11, 32, 48 },
+        { "WALL", 64 * 5,  64 * 11, 32, 48 },
+        { "WALL", 64 * 6,  64 * 11, 32, 48 },
+        { "WALL", 64 * 7,  64 * 11, 32, 48 },
+        { "WALL", 64 * 8,  64 * 11, 32, 48 },
+        { "WALL", 64 * 9,  64 * 11, 32, 48 },
+        { "WALL", 64 * 10, 64 * 11, 32, 48 },
+        { "WALL", 64 * 11, 64 * 11, 32, 48 },
+        { "WALL", 64 * 12, 64 * 11, 32, 48 },
+        { "WALL", 64 * 13, 64 * 11, 32, 48 },
+        { "WALL", 64 * 14, 64 * 11, 32, 48 }
+    };
+    NPC npc_collisions[1] = {
+        { "NPC", 200, 400, 16, 16, "Ola eu sou um NPC \n Esse e um teste de quebra de linhas", false }
     };
     
 
@@ -154,9 +168,10 @@ int main() {
             checkCollisionWithWalls(&player, &walls[i]);
         }
         
-        
+        // Sprites
         al_draw_scaled_bitmap(playerSprite, 0, 48 * player.PLAYERDIR, 48, 48, player.POSX, player.POSY, 48 * 2, 48 * 2, 0);
-        //al_draw_scaled_bitmap(textBox, 0, 0, 144, 64, 200, 400, 144 * 2, 64 * 2, 0);
+        al_draw_scaled_bitmap(npc_one_sprite, 0, 0, 16, 16, 200, 400, 16 * 2, 16 * 2, 0);
+        
 
         // Drawing bottom walls
         for (int i = 0; i < 15  ; i++) {
@@ -175,6 +190,10 @@ int main() {
             checkCollisionWithWalls(&player, &bottomWals[i]);
         }
 
+        for (int i = 0; i < 1; i++) {
+            checkCollisionWithNpc(&player, &npc_collisions[i], textBox, font, drawTextBox);
+        }
+
         al_flip_display();
     }
     
@@ -184,6 +203,7 @@ int main() {
     
     al_destroy_display(display);
     al_destroy_event_queue(event_queue);
+    
     al_destroy_bitmap(wallSprite);
     al_destroy_bitmap(playerSprite);
 

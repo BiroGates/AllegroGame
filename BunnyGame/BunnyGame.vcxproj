@@ -29,6 +29,9 @@
     <Image Include="..\assets\casa_di_piriquito.png">
       <DeploymentContent>true</DeploymentContent>
     </Image>
+    <Image Include="..\assets\npc_one_sprite.png">
+      <DeploymentContent>true</DeploymentContent>
+    </Image>
     <Image Include="..\assets\player.png">
       <DeploymentContent>true</DeploymentContent>
     </Image>
@@ -38,12 +41,17 @@
     </Image>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="drawWalls.h" />
+    <ClInclude Include="npc.h" />
     <ClInclude Include="wall.h" />
     <ClInclude Include="playerFunctions.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="..\font.ttf">
+      <DeploymentContent>true</DeploymentContent>
+    </Font>
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>

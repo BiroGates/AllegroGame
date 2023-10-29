@@ -53,6 +53,9 @@
     <Image Include="..\assets\boxT.png">
       <Filter>Arquivos de Recurso\assets</Filter>
     </Image>
+    <Image Include="..\assets\npc_one_sprite.png">
+      <Filter>Arquivos de Recurso\characters</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="wall.h">
@@ -61,11 +64,16 @@
     <ClInclude Include="playerFunctions.h">
       <Filter>Arquivos de Cabeçalho\functions</Filter>
     </ClInclude>
-    <ClInclude Include="drawWalls.h">
-      <Filter>Arquivos de Cabeçalho\functions</Filter>
+    <ClInclude Include="npc.h">
+      <Filter>Arquivos de Cabeçalho\types</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="..\font.ttf">
+      <Filter>Arquivos de Recurso</Filter>
+    </Font>
   </ItemGroup>
 </Project>

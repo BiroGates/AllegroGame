@@ -1,2 +1,11 @@
 ﻿C:\Program Files\Microsoft Visual Studio\2022\Preview\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(531,5): warning MSB8028: O diretório intermediário (Debug\) contém arquivos compartilhados de outro projeto (BunnyGame.vcxproj). Isso pode levar a um comportamento incorreto de limpeza e recompilação.
-  BunnyGame.vcxproj -> C:\Users\wwwgu\Documents\Pokenac\AllegroGame\Debug\AllegroGame.exe
+  index.c
+C:\Users\wwwgu\Documents\Programação\AllegroGame\BunnyGame\index.c(8,10): warning C4067: tokens inesperados após diretiva de pré-processador - esperado um newline
+C:\Users\wwwgu\Documents\Programação\AllegroGame\BunnyGame\index.c(9,10): warning C4067: tokens inesperados após diretiva de pré-processador - esperado um newline
+C:\Users\wwwgu\Documents\Programação\AllegroGame\BunnyGame\index.c(13,10): warning C4067: tokens inesperados após diretiva de pré-processador - esperado um newline
+C:\Users\wwwgu\Documents\Programação\AllegroGame\BunnyGame\playerFunctions.h(61,14): warning C4098: 'checkCollisionWithWalls': função 'void' retornando um valor
+C:\Users\wwwgu\Documents\Programação\AllegroGame\BunnyGame\playerFunctions.h(64,14): warning C4098: 'checkCollisionWithWalls': função 'void' retornando um valor
+C:\Users\wwwgu\Documents\Programação\AllegroGame\BunnyGame\playerFunctions.h(89,14): warning C4098: 'checkCollisionWithNpc': função 'void' retornando um valor
+C:\Users\wwwgu\Documents\Programação\AllegroGame\BunnyGame\playerFunctions.h(92,14): warning C4098: 'checkCollisionWithNpc': função 'void' retornando um valor
+C:\Users\wwwgu\Documents\Programação\AllegroGame\BunnyGame\index.c(153,52): warning C4020: 'al_map_rgb': muitos parâmetros reais
+  BunnyGame.vcxproj -> C:\Users\wwwgu\Documents\Programação\AllegroGame\Debug\AllegroGame.exe
